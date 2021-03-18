@@ -24,31 +24,26 @@ class App extends React.Component {
   };
 
   handleClickMinus = () => {
-    this.setState({
-      index: this.state.index - 1,
-    });
+    if (this.state.index > 0) {
+      this.setState({
+        index: this.state.index - 1,
+      });
+    }
   };
 
   render() {
-    let valid = this.state.index;
-
-    if (valid < 0) {
-      valid = 0;
-      <p className="App-text">{valid}</p>;
-    } else {
-    }
     return (
       <div className="App-counter">
-        <p className="App-text">{valid}</p>
+        <p className="App-text">{this.state.index}</p>
         <div className="App-button">
           <button className="App-plus" onClick={this.handleClick}>
-            <img src={plus} alt={"plus"}></img>
+            +
           </button>
           <button className="App-change" onClick={this.handleClickChange}>
-            <img src={change} alt={"change"}></img>
+            0
           </button>
           <button className="App-minus" onClick={this.handleClickMinus}>
-            <img src={minus} alt={"minus"}></img>
+            -
           </button>
         </div>
       </div>
